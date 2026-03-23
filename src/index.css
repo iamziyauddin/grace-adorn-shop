@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 60 33% 96%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 40 33% 97%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 43 56% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 60 33% 93%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 40 20% 93%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 43% 97%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 43 56% 52%;
+
+    --radius: 0.25rem;
+
+    /* Custom tokens */
+    --gold: 43 56% 52%;
+    --bone: 40 33% 97%;
+    --beige: 60 33% 93%;
+    --charcoal: 0 0% 10%;
+    --soft-pink: 0 43% 97%;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-medium: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .btn-luxury {
+    @apply inline-flex items-center justify-center px-8 py-3 text-sm font-body font-medium tracking-[0.15em] uppercase transition-all border;
+    transition-duration: var(--transition-medium);
+  }
+
+  .btn-luxury-primary {
+    @apply btn-luxury bg-primary text-primary-foreground border-primary hover:opacity-90;
+  }
+
+  .btn-luxury-outline {
+    @apply btn-luxury bg-transparent text-foreground border-foreground/30 hover:bg-foreground hover:text-background;
+  }
+
+  .btn-luxury-ghost {
+    @apply btn-luxury bg-transparent text-foreground border-transparent hover:border-foreground/20;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .editorial-heading {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.1];
+  }
+
+  .editorial-subheading {
+    @apply font-display text-2xl md:text-3xl font-normal tracking-tight leading-snug;
+  }
+
+  .body-elegant {
+    @apply font-body text-sm md:text-base font-light leading-relaxed tracking-wide text-muted-foreground;
+  }
+
+  .image-hover-zoom {
+    @apply overflow-hidden;
+  }
+
+  .image-hover-zoom img {
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .image-hover-zoom:hover img {
+    transform: scale(1.05);
+  }
+}
